@@ -1,0 +1,129 @@
+[
+  {
+    "id": 1,
+    "title": "How to Write a Great Blog Post",
+    "slug": "how-to-write-a-great-blog-post",
+    "author": {
+      "id": 123,
+      "name": "John Doe",
+      "bio": "John is a content writer with 5 years of experience in blogging and digital marketing.",
+      "profile_picture": "https://example.com/images/john_doe.jpg"
+    },
+    "date": "2024-12-16T10:00:00+00:00",
+    "content": {
+      "intro": "Writing a great blog post can be challenging, but with the right approach, anyone can create valuable content.",
+      "body": "Following these steps will help you create blog posts that both readers and search engines will love."
+    },
+    "tags": [
+      "blogging",
+      "content creation",
+      "SEO",
+      "writing tips"
+    ],
+    "featured_image": [
+      "https://example.com/images/blog-post.jpg",
+      "https://example.com/images/blog-post2.jpg",
+      "https://example.com/images/blog-post3.jpg"
+    ],
+    "category": "Writing",
+    "meta": null,
+    "status": true
+  },
+  {
+    "id": 2,
+    "title": "The Importance of SEO in Blogging",
+    "slug": "importance-of-seo-in-blogging",
+    "author": {
+      "id": 124,
+      "name": "Jane Smith",
+      "bio": "Jane is a digital marketing expert and blogger with a focus on SEO and content strategy.",
+      "profile_picture": "https://example.com/images/jane_smith.jpg"
+    },
+    "date": "2024-12-17T08:30:00+00:00",
+    "content": {
+      "intro": "SEO plays a crucial role in increasing the visibility of your blog, ensuring that your content reaches the right audience.",
+      "body": "This post will cover essential SEO strategies to improve your blog's ranking and visibility in search engines."
+    },
+    "tags": [
+      "SEO",
+      "blogging",
+      "digital marketing",
+      "content strategy"
+    ],
+    "featured_image": [
+      "https://example.com/images/seo-blog-post.jpg",
+      "https://example.com/images/seo-blog-post2.jpg"
+    ],
+    "category": "SEO",
+    "meta": null,
+    "status": true
+  },
+  {
+    "id": 3,
+    "title": "Introduction in C#",
+    "slug": "introduction-in-c",
+    "author": {
+      "id": 0,
+      "name": "",
+      "bio": "",
+      "profile_picture": null
+    },
+    "date": "2024-12-16T14:55:52.6934599+05:30",
+    "content": {
+      "intro": "This is an introductory blog about C# programming language.",
+      "body": "C# is a powerful, modern object-oriented programming language developed by Microsoft. It is widely used for building desktop, web, and mobile applications."
+    },
+    "tags": [
+      "c#",
+      "Programming",
+      "Introduction"
+    ],
+    "featured_image": [
+      "introduction-in-c_20241216092543921.jpg",
+      "introduction-in-c_20241216092543941.jpg",
+      "introduction-in-c_20241216092543947.jpg",
+      "introduction-in-c_20241216092543949.jfif",
+      "introduction-in-c_20241216092543952.jfif",
+      "introduction-in-c_20241216092543954.jpeg"
+    ],
+    "category": "Programming",
+    "meta": {
+      "description": "Learn about the C# programming language and its uses in this introductory blog post.",
+      "keywords": [
+        "c#",
+        "programming language",
+        "coding",
+        "tutorial"
+      ]
+    },
+    "status": true
+  },
+  {
+    "id": 4,
+    "title": "string",
+    "slug": "string",
+    "author": {
+      "id": 28,
+      "name": "Hemendra",
+      "bio": null,
+      "profile_picture": null
+    },
+    "date": "2024-12-18T17:46:31.0381518+05:30",
+    "content": {
+      "intro": "string",
+      "body": "string"
+    },
+    "tags": [
+      "string"
+    ],
+    "featured_image": [],
+    "category": "string",
+    "meta": {
+      "description": "string",
+      "keywords": [
+        "string"
+      ]
+    },
+    "status": true
+  }
+]
