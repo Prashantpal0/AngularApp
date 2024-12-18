@@ -1,0 +1,118 @@
+<form (ngSubmit)="onSubmit()" #blogForm="ngForm" enctype="multipart/form-data">
+  <!-- Title -->
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input 
+      type="text" 
+      id="title" 
+      name="title" 
+      [(ngModel)]="blogData.title" 
+      required 
+      #title="ngModel" 
+      class="form-control"
+    />
+    <div *ngIf="title.invalid && title.touched" class="error">Title is required</div>
+  </div>
+
+  <!-- Content -->
+  <div class="form-group">
+    <label for="content">Content</label>
+    <textarea 
+      id="content" 
+      name="content" 
+      [(ngModel)]="blogData.content.intro" 
+      required 
+      #content="ngModel" 
+      class="form-control" 
+      rows="4"
+    ></textarea>
+    <div *ngIf="content.invalid && content.touched" class="error">Content is required</div>
+  </div>
+
+  <!-- Tags -->
+  <div class="form-group">
+    <label for="tags">Tags (comma separated)</label>
+    <input 
+      type="text" 
+      id="tags" 
+      name="tags" 
+      [(ngModel)]="blogData.tags" 
+      class="form-control"
+    />
+  </div>
+
+  <!-- Category -->
+  <div class="form-group">
+    <label for="category">Category</label>
+    <input 
+      type="text" 
+      id="category" 
+      name="category" 
+      [(ngModel)]="blogData.category" 
+      required 
+      #category="ngModel" 
+      class="form-control"
+    />
+    <div *ngIf="category.invalid && category.touched" class="error">Category is required</div>
+  </div>
+
+  <!-- Meta -->
+  <div class="form-group">
+    <label for="meta-description">Meta Description</label>
+    <input 
+      type="text" 
+      id="meta-description" 
+      name="meta-description" 
+      [(ngModel)]="blogData.meta.description" 
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="meta-keywords">Meta Keywords</label>
+    <input 
+      type="text" 
+      id="meta-keywords" 
+      name="meta-keywords" 
+      [(ngModel)]="blogData.meta.keywords" 
+      class="form-control"
+    />
+  </div>
+
+  <!-- Images -->
+  <div class="form-group">
+    <label for="images">Images</label>
+    <input 
+      type="file" 
+      id="images" 
+      name="images" 
+      (change)="onImageChange($event)" 
+      multiple 
+      class="form-control"
+    />
+    <div *ngIf="blogData.images">
+      <p>{{ blogData.images.length }} file(s) selected</p>
+    </div>
+  </div>
+
+  <!-- Status -->
+  <div class="form-group">
+    <label for="status">Status</label>
+    <input 
+      type="checkbox" 
+      id="status" 
+      name="status" 
+      [(ngModel)]="blogData.status" 
+      class="form-check-input"
+    />
+  </div>
+
+  <!-- Submit Button -->
+  <div class="form-group">
+    <button type="submit" 
+      [disabled]="blogForm.invalid" 
+      class="btn btn-primary">
+      {{ isEditing ? 'Save Changes' : 'Add Blog' }}
+    </button>
+  </div>
+</form>
