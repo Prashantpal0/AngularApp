@@ -11,7 +11,7 @@ namespace BMSAPI.Services.Blogs
 {
     public class BlogService:IBlogService
     {
-        private readonly string FilePath = "D:/Angular/BMS/BMSAPI/BMSAPI/Data/Blogs.json";
+        private readonly string FilePath = "https://github.com/Prashantpal0/AngularApp/tree/main/BMS/BMSAPI/BMSAPI/Data/Blogs.json";
         private readonly IAuthentication _authenticationService;
         public BlogService(IAuthentication authenticationService)
         {
