@@ -42,10 +42,10 @@ namespace BMSAPI.Controllers
             }
             return Ok(new { error = false, data = blog, message = "Records fetched successfully.", code = 200, status = true });
         }
-             
-        [HttpPost]
+
+        [HttpPost("Addblog")]
         [Authorize]
-        public async Task<IActionResult> AddBlog([FromForm] AddBlog blogPost)
+        public async Task<IActionResult> CreateBlog([FromForm] AddBlog blogPost, [FromForm] IFormFile[] BlogImages)
         {
             // Extract the token from the Authorization header
             string token = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
@@ -91,9 +91,9 @@ namespace BMSAPI.Controllers
             // Handle file uploads
             List<string> imageUrls = new List<string>();
             List<string> UploadedFiles = new List<string>();
-            if (blogPost.Images != null && blogPost.Images.Length > 0)
+            if (BlogImages != null && BlogImages.Length > 0)
             {
-                foreach (var file in blogPost.Images)
+                foreach (var file in BlogImages)
                 {
                     if (file.Length > 0)
                     {
@@ -123,57 +123,41 @@ namespace BMSAPI.Controllers
         }
 
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateBlog([FromForm] UpdateBlog blogPost)
+        [HttpPut("Updateblog/{id}")]
+        [Authorize]
+        public async Task<IActionResult> UpdateBlog(string id, [FromForm] UpdateBlog blogPost, [FromForm] IFormFile[] BlogImages)
         {
-            var blogs = _blogService.GetBlogById(blogPost.id);
-            if (blogs == null)
+            var blog = _blogService.GetBlogById(Convert.ToInt64(id));
+            if (blog == null)
             {
                 return NotFound("Blog not found.");
             }
 
-            if (blogs.FeaturedImage != null && blogs.FeaturedImage.Count() > 0)
+            // Process uploaded images (similar to your existing API logic)
+            List<string> uploadedImages = new List<string>();
+            if (BlogImages != null && BlogImages.Length > 0)
             {
-                // Loop through each image associated with the blog and delete it
-                foreach (var imagePath in blogs.FeaturedImage)
-                {
-                    DeleteImage(imagePath);
-                }
-            }
-            List<string> imageUrls = new List<string>();
-            List<string> UploadedFiles = new List<string>();
-            if (blogPost.Images != null && blogPost.Images.Length > 0)
-            {
-                foreach (var file in blogPost.Images)
+                foreach (var file in BlogImages)
                 {
                     if (file.Length > 0)
                     {
-                        // Generate a unique timestamp for each image
-                        string timestamp = DateTime.UtcNow.ToString("yyyyMMddHHmmssfff"); // Use the current UTC time with milliseconds to ensure uniqueness
-
-                        // Generate the file name with the blog slug and timestamp
-                        var fileName = $"{blogs.Slug.ToLower()}_{timestamp}{Path.GetExtension(file.FileName)}";  // Adding extension from original file name
-
-                        // Define the file path where the image will be saved
+                        string fileName = $"{blog.Slug}_{DateTime.UtcNow:yyyyMMddHHmmssfff}{Path.GetExtension(file.FileName)}";
                         var filePath = Path.Combine("images/blogs", fileName);
-
-                        // Save the file to the local folder
                         using (var stream = new FileStream(filePath, FileMode.Create))
                         {
                             await file.CopyToAsync(stream);
                         }
-                        // Add the saved file path to the list of image URLs (or URL if using cloud storage)
-                        imageUrls.Add(filePath);
-                        UploadedFiles.Add(fileName);
+                        uploadedImages.Add(fileName);
                     }
                 }
             }
-            // Save the updated blog in the database
-            var updatedBlog = _blogService.UpdateBlog(blogPost.id, blogPost, UploadedFiles.ToArray());
 
-            // Return a response with the updated blog post
+            // Call your service to update the blog
+            var updatedBlog = _blogService.UpdateBlog(Convert.ToInt64(id), blogPost, uploadedImages.ToArray());
+
             return Ok(new { error = false, data = updatedBlog, message = "Blog updated successfully.", code = 200, status = true });
         }
+
 
         // PUT: api/blog/{id}/status
         [HttpPut("{id}/status")]
@@ -188,7 +172,8 @@ namespace BMSAPI.Controllers
         }
 
         // DELETE: api/blog/{id}
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteBlog/{id}")]
+        [Authorize]
         public IActionResult DeleteBlog(int id)
         {
             var blogToDelete = _blogService.GetBlogById(id);

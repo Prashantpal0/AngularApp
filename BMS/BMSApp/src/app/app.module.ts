@@ -13,9 +13,11 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { AddEditBlogComponent } from './add-edit-blog/add-edit-blog.component';
+import { HeaderComponent } from './header/header.component';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, DashboardComponent, BlogListComponent, AddEditBlogComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, DashboardComponent, BlogListComponent, AddEditBlogComponent, HeaderComponent, BlogDetailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

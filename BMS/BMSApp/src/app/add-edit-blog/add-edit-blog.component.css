@@ -1,64 +1,98 @@
-/* General Container */
-.container {
+/* General Body Styles */
+body#blog {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+/* Wrapper Container */
+.wrapper {
   max-width: 800px;
-  margin: 30px auto;
+  margin: 50px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
 }
 
-/* Form Header */
-.form-container h2 {
-  text-align: center;
+.header-container{
+  display: flex;
+      gap: 542px;
+      margin-bottom: 15px;
+}
+/* Header Styles */
+h2 {
   font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
   margin-bottom: 20px;
-  color: #333;
 }
 
-/* Form Group Styling */
-.form-group {
+/* Error Message */
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Input Box Styles */
+.input-box {
   margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
-.form-group label {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  display: block;
-  color: #333;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
+.input-box input,
+.input-box textarea {
+  padding: 12px;
+  font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%;
+  transition: border 0.3s ease;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  outline-color: #007bff;
+.input-box input:focus,
+.input-box textarea:focus {
+  border-color: #007BFF;
+  outline: none;
 }
 
-.form-group .error {
-  color: red;
-  font-size: 12px;
-  margin-top: 5px;
+/* Label Styles */
+.input-box label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
 }
 
-/* Button Styling */
+/* Textarea Styles */
+textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+}
+
+/* Button Styles */
 .btn {
-  background-color: #007bff;
-  color: white;
+  padding: 12px 20px;
   font-size: 16px;
-  padding: 10px 20px;
+  font-weight: 600;
+  background-color: #007BFF;
+  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
@@ -66,9 +100,98 @@
 }
 
 .btn:disabled {
-  background-color: #cccccc;
+  background-color: #b0c4de;
   cursor: not-allowed;
 }
-body{
-  overflow: auto;
+
+/* File Input Styles */
+input[type="file"] {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Checkbox Styles */
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .input-box input,
+  .input-box textarea {
+    font-size: 16px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+}
+/* Dropdown Styles */
+.input-box select {
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  background-color: white;
+  cursor: pointer;
+  transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+/* Focused Dropdown */
+.input-box select:focus {
+  border-color: #007BFF;
+  background-color: #f1faff;
+  outline: none;
+}
+
+/* Label for Dropdown */
+.input-box label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+  display: block;
+}
+
+/* Dropdown Option Styling */
+.input-box select option {
+  padding: 10px;
+  font-size: 14px;
+  background-color: white;
+  color: #333;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover effect for option (when mouse is over) */
+.input-box select option:hover {
+  background-color: #f0f8ff;
+}
+.back-btn:hover{
+  color: #fff;;
+}
+.back-btn {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  color: #000;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 4px;
+  max-width: 100px;
 }

@@ -78,46 +78,58 @@ namespace BMSAPI.Models
 
 
    public partial class AddBlog
-   {
-       [JsonProperty("title")]
+    {
+
+        [JsonProperty("title")]
         public string Title { get; set; }
 
-        [JsonProperty("content")]
-        public Content Content { get; set; }
-
-        [JsonProperty("tags")]
-        public string[] Tags { get; set; }
-
+        [JsonProperty("intro")]
+        public string Introduction { get; set; }
 
         [JsonProperty("category")]
         public string Category { get; set; }
 
-        [JsonProperty("meta")]
-        public Meta Meta { get; set; }
-        [JsonProperty("image")]
-        public IFormFile[] Images { get; set; }
+        [JsonProperty("body")]
+        public string Content { get; set; }  // Ensure it is 'Content' instead of 'content'
+
+        [JsonProperty("tags")]
+        public string[] Tags { get; set; }
+
+        [JsonProperty("keywords")]
+        public string[] Keywords { get; set; }
+
+        [JsonProperty("descriptions")]
+        public string Descriptions { get; set; }
 
         [JsonProperty("status")]
         public bool Status { get; set; }
-   }
+    }
 
     public partial class UpdateBlog
     {
+        [JsonProperty("title")]
+        public string Title { get; set; }
 
-        [JsonProperty("id")]
-        public long id { get; set; }
-        [JsonProperty("content")]
-        public Content Content { get; set; }
-
-        [JsonProperty("tags")]
-        public string[] Tags { get; set; }
+        [JsonProperty("intro")]
+        public string Introduction { get; set; }
 
         [JsonProperty("category")]
         public string Category { get; set; }
 
+        [JsonProperty("body")]
+        public string Content { get; set; }  // Ensure it is 'Content' instead of 'content'
+
+        [JsonProperty("tags")]
+        public string[] Tags { get; set; }
+
+        [JsonProperty("keywords")]
+        public string[] Keywords { get; set; }
+
+        [JsonProperty("descriptions")]
+        public string Descriptions { get; set; }
+
         [JsonProperty("status")]
         public bool Status { get; set; }
-        [JsonProperty("image")]
-        public IFormFile[] Images { get; set; }
     }
+
 }

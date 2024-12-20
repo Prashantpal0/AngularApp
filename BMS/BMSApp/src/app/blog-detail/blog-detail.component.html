@@ -1,0 +1,51 @@
+<body>
+    <div class="container">
+        <!-- Loading and Error Message -->
+        <div *ngIf="isLoading" class="is-loading">Loading blog details...</div>
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+        <!-- Blog Content -->
+        <div *ngIf="!isLoading && blog">
+            <!-- Header Section -->
+            <div class="header-container">
+                <h2>{{ blog.title }}</h2>
+                <button type="button" class="btn back-btn" (click)="goBack()">Back</button>
+            </div>
+            <p><strong>Category:</strong> {{ blog.category }}</p>
+            <p><strong>Author:</strong> {{ blog.author.name }}</p>
+            <p><strong>Date:</strong> {{ blog.date | date: 'longDate' }}</p>
+            <p><strong>Status:</strong> {{ blog.status ? 'Published' : 'Draft' }}</p>
+
+            <!-- Introduction -->
+            <p><strong>Introduction:</strong> {{ blog.content.intro }}</p>
+
+            <!-- Blog Content -->
+            <div><strong>Content:</strong></div>
+            <div [innerHTML]="blog.content.body"></div>
+
+            <!-- Tags Section -->
+            <div *ngIf="blog.tags && blog.tags.length > 0">
+                <strong>Tags:</strong>
+                <span *ngFor="let tag of blog.tags; let last = last">
+                    {{ tag }}<span *ngIf="!last">, </span>
+                </span>
+            </div>
+
+            <!-- Keywords Section -->
+            <div *ngIf="blog.metaTags.keywords && blog.metaTags.keywords.length > 0">
+                <strong>Keywords:</strong>
+                <span *ngFor="let keyword of blog.metaTags.keywords; let last = last">
+                    {{ keyword }}<span *ngIf="!last">, </span>
+                </span>
+            </div>
+
+            <!-- Featured Images Section -->
+            <div *ngIf="blog.featuredImage && blog.featuredImage.length > 0">
+                <strong>Featured Images:</strong>
+                <div class="image-gallery">
+                    <img *ngFor="let image of blog.featuredImage" [src]="image" alt="Featured Image" class="featured-img" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,138 @@
+/* General Body and Page Layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+/* Container for the blog details */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading and error message styles */
+.is-loading,
+.error-message {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    padding: 10px 0;
+}
+
+.is-loading {
+    font-weight: bold;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+/* Blog Title */
+h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Content styling for category, author, date, and introduction */
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+    margin: 10px 0;
+}
+
+strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Tags and Keywords Styling */
+span {
+    font-size: 1.1em;
+    color: #0066cc;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+span:hover {
+    text-decoration: underline;
+}
+
+/* Featured Image Styling */
+.featured-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+/* Image Gallery for Featured Images */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.image-gallery img {
+    max-width: 300px;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    h2 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    strong {
+        font-size: 1.1em;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .image-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+}

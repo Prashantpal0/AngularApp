@@ -26,7 +26,15 @@
       "https://example.com/images/blog-post3.jpg"
     ],
     "category": "Writing",
-    "meta": null,
+    "meta": {
+      "description": "Here are some tips on how to create great blog content...",
+      "keywords": [
+        "SEO",
+        "blogging",
+        "digital marketing",
+        "content strategy"
+      ]
+    },
     "status": true
   },
   {
@@ -55,7 +63,15 @@
       "https://example.com/images/seo-blog-post2.jpg"
     ],
     "category": "SEO",
-    "meta": null,
+    "meta": {
+      "description": "Here are some tips on how to create great blog content...",
+      "keywords": [
+        "SEO",
+        "blogging",
+        "digital marketing",
+        "content strategy"
+      ]
+    },
     "status": true
   },
   {
@@ -100,28 +116,60 @@
   },
   {
     "id": 4,
-    "title": "string",
-    "slug": "string",
+    "title": "Hello world",
+    "slug": "hello-world",
     "author": {
-      "id": 28,
-      "name": "Hemendra",
+      "id": 25,
+      "name": "Pushpendra Shukla",
       "bio": null,
       "profile_picture": null
     },
-    "date": "2024-12-18T17:46:31.0381518+05:30",
+    "date": "2024-12-20T17:59:21.5840836+05:30",
     "content": {
-      "intro": "string",
-      "body": "string"
+      "intro": "Hello world",
+      "body": "Hello world"
     },
     "tags": [
-      "string"
+      "Hello world"
     ],
     "featured_image": [],
-    "category": "string",
+    "category": "Hello world",
     "meta": {
-      "description": "string",
+      "description": "Hello world",
       "keywords": [
-        "string"
+        "Hello world"
+      ]
+    },
+    "status": true
+  },
+  {
+    "id": 6,
+    "title": "Demo circle",
+    "slug": "demo-circle",
+    "author": {
+      "id": 21,
+      "name": "Prasant",
+      "bio": null,
+      "profile_picture": null
+    },
+    "date": "2024-12-20T19:07:35.2305031+05:30",
+    "content": {
+      "intro": "Demo circle",
+      "body": "Demo circleDemo circleDemo circleDemo circleDemo circleDemo circleDemo circleDemo circleDemo circleDemo circle"
+    },
+    "tags": [
+      "[\"Demo circle\",\"Demo circle\"]"
+    ],
+    "featured_image": [
+      "demo-circle_20241220133734372.png",
+      "demo-circle_20241220133734394.jpg",
+      "demo-circle_20241220133734400.jpg"
+    ],
+    "category": "Demo circle",
+    "meta": {
+      "description": "Demo circle",
+      "keywords": [
+        "[\"Demo circle\",\"Demo circle\",\"Demo circle\"]"
       ]
     },
     "status": true

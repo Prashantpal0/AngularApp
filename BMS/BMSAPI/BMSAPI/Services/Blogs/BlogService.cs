@@ -11,8 +11,7 @@ namespace BMSAPI.Services.Blogs
 {
     public class BlogService:IBlogService
     {
-        private readonly string FilePath = "D:\\local\\Angular_Session_POC_Dec_2024\\BMS\\BMSAPI\\BMSAPI\\Data\\Blogs.json";
-
+        private readonly string FilePath = "D:/Angular/BMS/BMSAPI/BMSAPI/Data/Blogs.json";
         private readonly IAuthentication _authenticationService;
         public BlogService(IAuthentication authenticationService)
         {
@@ -65,16 +64,16 @@ namespace BMSAPI.Services.Blogs
                 Date= DateTime.Now,
                 Content= new Content()
                 {
-                    Intro = blog.Content.Intro,
-                    Body=blog.Content.Body
+                    Intro = blog.Introduction,
+                    Body=blog.Content
                 },
                 Tags= blog.Tags,
                 FeaturedImage= imageUrls.ToArray(),
                 Category= blog.Category,
                 MetaTags= new Meta()
                 {
-                    Description= blog.Meta.Description,
-                    Keywords=blog.Meta.Keywords,
+                    Description= blog.Descriptions,
+                    Keywords=blog.Keywords,
                 },
                 Status= blog.Status
             };
@@ -91,8 +90,8 @@ namespace BMSAPI.Services.Blogs
             {              
                 existingBlog.Content = new Content()
                 {
-                    Intro= updatedBlog.Content.Intro,
-                    Body=updatedBlog.Content.Body
+                    Intro= updatedBlog.Introduction,
+                    Body=updatedBlog.Content
                 };
                 existingBlog.Tags = updatedBlog.Tags;
                 existingBlog.FeaturedImage = imageUrls.ToArray().Count() > 0 ? imageUrls.ToArray(): existingBlog.FeaturedImage.ToArray();

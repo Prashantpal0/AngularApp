@@ -192,166 +192,6 @@
             "description": "OK"
           }
         }
-      },
-      "post": {
-        "tags": [
-          "Blog"
-        ],
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "Title": {
-                    "type": "string"
-                  },
-                  "Content.Intro": {
-                    "type": "string"
-                  },
-                  "Content.Body": {
-                    "type": "string"
-                  },
-                  "Tags": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "Category": {
-                    "type": "string"
-                  },
-                  "Meta.Description": {
-                    "type": "string"
-                  },
-                  "Meta.Keywords": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "Images": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "format": "binary"
-                    }
-                  },
-                  "Status": {
-                    "type": "boolean"
-                  }
-                }
-              },
-              "encoding": {
-                "Title": {
-                  "style": "form"
-                },
-                "Content.Intro": {
-                  "style": "form"
-                },
-                "Content.Body": {
-                  "style": "form"
-                },
-                "Tags": {
-                  "style": "form"
-                },
-                "Category": {
-                  "style": "form"
-                },
-                "Meta.Description": {
-                  "style": "form"
-                },
-                "Meta.Keywords": {
-                  "style": "form"
-                },
-                "Images": {
-                  "style": "form"
-                },
-                "Status": {
-                  "style": "form"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Blog"
-        ],
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "Content.Intro": {
-                    "type": "string"
-                  },
-                  "Content.Body": {
-                    "type": "string"
-                  },
-                  "Tags": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "Category": {
-                    "type": "string"
-                  },
-                  "Status": {
-                    "type": "boolean"
-                  },
-                  "Images": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "format": "binary"
-                    }
-                  }
-                }
-              },
-              "encoding": {
-                "id": {
-                  "style": "form"
-                },
-                "Content.Intro": {
-                  "style": "form"
-                },
-                "Content.Body": {
-                  "style": "form"
-                },
-                "Tags": {
-                  "style": "form"
-                },
-                "Category": {
-                  "style": "form"
-                },
-                "Status": {
-                  "style": "form"
-                },
-                "Images": {
-                  "style": "form"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
       }
     },
     "/api/blog/{id}": {
@@ -375,8 +215,99 @@
             "description": "OK"
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/api/blog/Addblog": {
+      "post": {
+        "tags": [
+          "Blog"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Introduction": {
+                    "type": "string"
+                  },
+                  "Category": {
+                    "type": "string"
+                  },
+                  "Content": {
+                    "type": "string"
+                  },
+                  "Tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "Keywords": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "Descriptions": {
+                    "type": "string"
+                  },
+                  "Status": {
+                    "type": "boolean"
+                  },
+                  "BlogImages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Title": {
+                  "style": "form"
+                },
+                "Introduction": {
+                  "style": "form"
+                },
+                "Category": {
+                  "style": "form"
+                },
+                "Content": {
+                  "style": "form"
+                },
+                "Tags": {
+                  "style": "form"
+                },
+                "Keywords": {
+                  "style": "form"
+                },
+                "Descriptions": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "BlogImages": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/blog/Updateblog/{id}": {
+      "put": {
         "tags": [
           "Blog"
         ],
@@ -386,11 +317,87 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Introduction": {
+                    "type": "string"
+                  },
+                  "Category": {
+                    "type": "string"
+                  },
+                  "Content": {
+                    "type": "string"
+                  },
+                  "Tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "Keywords": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "Descriptions": {
+                    "type": "string"
+                  },
+                  "Status": {
+                    "type": "boolean"
+                  },
+                  "BlogImages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Title": {
+                  "style": "form"
+                },
+                "Introduction": {
+                  "style": "form"
+                },
+                "Category": {
+                  "style": "form"
+                },
+                "Content": {
+                  "style": "form"
+                },
+                "Tags": {
+                  "style": "form"
+                },
+                "Keywords": {
+                  "style": "form"
+                },
+                "Descriptions": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "BlogImages": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -418,6 +425,29 @@
             "in": "query",
             "schema": {
               "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/blog/DeleteBlog/{id}": {
+      "delete": {
+        "tags": [
+          "Blog"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
