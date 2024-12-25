@@ -9,7 +9,7 @@ namespace BMSAPI.Services.Authentication
 {
     public class AuthenticationServices : IAuthentication
     {
-        private readonly string _filePath = "https://github.com/Prashantpal0/AngularApp/tree/main/BMS/BMSAPI/BMSAPI/Data/UsersData.json";
+        private readonly string _filePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "UsersData.json");
         private readonly string secretKey = "JIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI";
         public List<User> ReadUsersFromFile()
         {
